@@ -1,0 +1,59 @@
+<html lang="ko"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org/" xmlns:v-on="http://www.w3.org/1999/xhtml"
+        xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+<!-- head.html -->
+<div th:replace="fragment/head :: head"></div>
+<!-- head.html 끝-->
+
+<body class="theme-red">
+<!-- Contents-->
+<div class="content-wrapper">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>상태</th>
+                <th>주소</th>
+                <th>콜센터</th>
+                <th>비지니스</th>
+                <th>ceo</th>
+            </tr>
+            </thead>
+            <tbody id="itemList">
+            <tr role="row" class="odd" v-for="dto in itemList">
+                <th scope="row">{{dto.id}}</th>
+                <td>{{dto.name}}</td>
+                <td>{{dto.status}}</td>
+                <td>{{dto.address}}</td>
+                <td>{{dto.callCenter}}</td>
+                <td>{{dto.businessNumber}}</td>
+                <td>{{dto.ceoName}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+</div>
+<!-- Content End -->
+<div class="row">
+    <div class="col-sm-5">
+        <div id="showPage" class="dataTables_filter" role="status">
+            총{{totalElements}} 개의 데이터, 현재 {{currentPage}} 페이지
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</div>
+</body>
+
+<script src="/app/partner.js"></script>
+</html>
